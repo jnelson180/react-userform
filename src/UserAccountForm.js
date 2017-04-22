@@ -36,18 +36,18 @@ module.exports = class UserAccountForm extends React.Component {
         }
       };
       xhr.send(JSON.stringify({
-        id: this.state.id,
-        email: this.state.email,
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        jobTitle: this.state.jobTitle
+        id: data.id,
+        email: data.email,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        jobTitle: data.jobTitle
 
       }));
     }
 
   handleSubmit(event) {
     console.log('A change was submitted for ' + this.state.firstName + " " + this.state.lastName + ".");
-    this.updateUserSettings('hi');
+    this.updateUserSettings(this.state);
     event.preventDefault();
   }
 
