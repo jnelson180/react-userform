@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+}
+
+.App-header {
+  background-color: #0071bb;
+  line-height: 23px;
+  color: white;
+  padding-top: 35.2px;
+  padding-bottom: 25.888px;
+  color: #484c51;
+}
+
+form {
+  color: #484c51;
+}
+
+input {
+  margin-bottom: 26px;
+  color: #484c51;
+  width: 235px;
+}
+
+p {
+  text-align: left;
+}
+
+.submitButton {
+  margin-top: 20px;
+  font-size: 16px;
+  padding: 6px 16px 6px 16px;
+  background-color: #0058a2;
+  border-color: #0058a2;
+  color: #FFF;
+}
+
+.control-panel-title {
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 34px;
+  color: #484c51;
+}
