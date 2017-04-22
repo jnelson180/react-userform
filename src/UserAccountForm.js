@@ -18,13 +18,14 @@ module.exports = class UserAccountForm extends React.Component {
     }
 
   handleChange(event) {
-    console.log(event.target.value);
-    this.setState({[name]: event.target.value});
+    this.setState({[event.target.name]: event.target.value});
   }
 
     updateUserSettings(data) {
-      // http://requestb.in/1fxx6401
+      // inspect requestbin at https://requestb.in/1fxx6401?inspect
       var xhr = new XMLHttpRequest();
+      // used cors-anywhere because cannot send CORS request from localhost in
+      // modern browsers. Would not use cors-anywhere in production.
       xhr.open('PUT', 'https://cors-anywhere.herokuapp.com/requestb.in/1fxx6401');
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
@@ -35,13 +36,12 @@ module.exports = class UserAccountForm extends React.Component {
         }
       };
       xhr.send(JSON.stringify({
-
         id: this.state.id,
         email: this.state.email,
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         jobTitle: this.state.jobTitle
-      
+
       }));
     }
 
