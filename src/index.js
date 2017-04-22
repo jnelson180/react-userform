@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import UserAccountForm from './UserAccountForm.js';
-import logo from './logo.png';
 import './main.css';
+import Header from './Header.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -23,10 +23,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-
-        </div>
+        <Header />
         <h3 className="control-panel-title">
           User Account Control Panel
         </h3>
