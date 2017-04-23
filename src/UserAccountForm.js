@@ -7,6 +7,7 @@ module.exports = class UserAccountForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateUserSettings = this.updateUserSettings.bind(this);
+    this.loaderFunction = this.loaderFunction.bind(this);
 
     this.state = {
         id: this.props.user.id,
@@ -14,6 +15,17 @@ module.exports = class UserAccountForm extends React.Component {
         firstName: this.props.user.firstName,
         lastName: this.props.user.lastName,
         jobTitle: this.props.user.jobTitle
+      }
+    }
+
+    loaderFunction() {
+      if (document.getElementById("submitButton").classList.contains('loaded')) {
+        document.getElementById('loaded').style.cssText = 'display: none;';
+        document.getElementById('loading').style.cssText = document.getElementById('loading').style.cssText + 'display: inline-block;';
+      }
+      else {
+        document.getElementById('loading').style.cssText = 'display: none;';
+        document.getElementById('loaded').style.cssText = document.getElementById('loaded').style.cssText + 'display: inline-block;';
       }
     }
 
@@ -34,7 +46,9 @@ module.exports = class UserAccountForm extends React.Component {
       xhr.onload = function() {
         if (xhr.status === 200) {
           var userInfo = xhr.responseText;
-          console.log("Record updated!");
+          document.getElementById('loaded').innerText = "Saved!";
+          document.getElementById('loading').style.cssText = 'display: none;';
+          document.getElementById('loaded').style.cssText = document.getElementById('loading').style.cssText + 'display: inline-block;';
         }
       };
       xhr.send(JSON.stringify({
@@ -43,12 +57,13 @@ module.exports = class UserAccountForm extends React.Component {
         firstName: data.firstName,
         lastName: data.lastName,
         jobTitle: data.jobTitle
-
       }));
     }
 
   handleSubmit(event) {
     console.log('A change was submitted for ' + this.state.firstName + " " + this.state.lastName + ".");
+    document.getElementById('loaded').style.cssText = 'display: none;';
+    document.getElementById('loading').style.cssText = document.getElementById('loading').style.cssText + 'display: inline-block;';
     this.updateUserSettings(this.state);
     event.preventDefault();
   }
@@ -70,8 +85,9 @@ module.exports = class UserAccountForm extends React.Component {
           Job Title<br />
           <input type="text" name="jobTitle" defaultValue={this.state.jobTitle}  onChange={this.handleChange}/><br />
 
-          <input type="submit" value="Save" className="submitButton" />
+          <button id="submitButton" className="submitButton"><div className="loaded" id="loaded">Save</div><div className="loading" id="loading"></div></button>
         </form>
+
       </div>
   );
 }
