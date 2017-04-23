@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    // In production, you would need to get the initial state from
+    // In production, we would need to get the initial state from
     // a database call or similar method and use the return value
     // to set the state (instead of the hard coded strings)
     this.state = {
@@ -30,7 +30,7 @@ class App extends React.Component {
         <h3 className="control-panel-title">
           User Account Control Panel
         </h3>
-        <UserAccountForm user={this.state.user}/>
+        <UserAccountForm user={this.state.user} />
       </div>
     );
   }
