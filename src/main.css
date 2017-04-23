@@ -32,8 +32,18 @@ input {
   margin-top: 4px;
   margin-bottom: 26px;
   color: #484c51;
-  width: 235px;
+  width: 300px;
   height: 20px;
+  padding-left: 2px;
+}
+
+input:hover, input:focus {
+  border: 2px #0071bb solid;
+}
+
+input:disabled {
+  background-color: #dbdbdb;
+  border: 1px solid #9f9f9f !important;
 }
 
 p {
@@ -42,13 +52,26 @@ p {
 
 .submitButton {
   margin-top: 20px;
+  margin-bottom: 20px;
   font-size: 16px;
   padding: 6px 16px 6px 16px;
   background-color: #0058a2;
   border-color: #0058a2;
   color: #FFF;
-  width: 235px;
+  width: 305px;
   height: 40px;
+}
+
+.submitButton:hover, .submitButton:focus {
+  border: outset 2px #0058a2;
+  background-color: #0069b3;
+  font-size: 16.5px;
+}
+
+.submitButton:disabled {
+  border: outset 2px #9f9f9f;
+  background-color: #9f9f9f;
+  font-size: 15.5px;
 }
 
 .control-panel-title {
