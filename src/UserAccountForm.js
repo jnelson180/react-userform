@@ -24,8 +24,10 @@ module.exports = class UserAccountForm extends React.Component {
     updateUserSettings(data) {
       // inspect requestbin at https://requestb.in/1fxx6401?inspect
       var xhr = new XMLHttpRequest();
-      // used cors-anywhere because cannot send CORS request from localhost in
-      // modern browsers. Would not use cors-anywhere in production.
+
+      // In dev environment, need to use cors-anywhere as
+      // requestbin does not allow CORS PUT requests
+
       xhr.open('PUT', 'https://cors-anywhere.herokuapp.com/requestb.in/1fxx6401');
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
