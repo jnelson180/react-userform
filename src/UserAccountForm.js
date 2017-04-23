@@ -18,17 +18,6 @@ module.exports = class UserAccountForm extends React.Component {
       }
     }
 
-    loaderFunction() {
-      if (document.getElementById("submitButton").classList.contains('loaded')) {
-        document.getElementById('loaded').style.cssText = 'display: none;';
-        document.getElementById('loading').style.cssText = document.getElementById('loading').style.cssText + 'display: inline-block;';
-      }
-      else {
-        document.getElementById('loading').style.cssText = 'display: none;';
-        document.getElementById('loaded').style.cssText = document.getElementById('loaded').style.cssText + 'display: inline-block;';
-      }
-    }
-
     handleChange(event) {
       this.setState({[event.target.name]: event.target.value});
     }
@@ -39,13 +28,11 @@ module.exports = class UserAccountForm extends React.Component {
 
       // In dev environment, need to use cors-anywhere as
       // requestbin does not allow CORS PUT requests
-
       xhr.open('PUT', 'https://cors-anywhere.herokuapp.com/requestb.in/1fxx6401');
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
       xhr.onload = function() {
         if (xhr.status === 200) {
-          var userInfo = xhr.responseText;
           document.getElementById('loaded').innerText = "Saved!";
           document.getElementById('loading').style.cssText = 'display: none;';
           document.getElementById('loaded').style.cssText = document.getElementById('loading').style.cssText + 'display: inline-block;';
