@@ -7,7 +7,6 @@ module.exports = class UserAccountForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateUserSettings = this.updateUserSettings.bind(this);
-    this.loaderFunction = this.loaderFunction.bind(this);
 
     this.state = {
         id: this.props.user.id,
