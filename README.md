@@ -4,7 +4,7 @@
 
 ## *Installation*
 
-###### Clone the package or download the ZIP file at https://github.com/jnelson180/react-userform.git, then run `npm start` in the `react-userform-master` directory.
+###### Clone the package or download the ZIP file at https://github.com/jnelson180/react-userform/archive/master.zip, then run `npm install` followed by `npm start` in the react-userform-master install directory.
 
 - The user form component itself is located at src/UserAccountForm.js.
 - It is rendered through index.js entry point, which imports UserAccountForm and Header components.
