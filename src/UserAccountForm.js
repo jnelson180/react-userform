@@ -29,9 +29,9 @@ module.exports = class UserAccountForm extends React.Component {
       }
     }
 
-  handleChange(event) {
-    this.setState({[event.target.name]: event.target.value});
-  }
+    handleChange(event) {
+      this.setState({[event.target.name]: event.target.value});
+    }
 
     updateUserSettings(data) {
       // inspect requestbin at https://requestb.in/1fxx6401?inspect
@@ -61,7 +61,6 @@ module.exports = class UserAccountForm extends React.Component {
     }
 
   handleSubmit(event) {
-    console.log('A change was submitted for ' + this.state.firstName + " " + this.state.lastName + ".");
     document.getElementById('loaded').style.cssText = 'display: none;';
     document.getElementById('loading').style.cssText = document.getElementById('loading').style.cssText + 'display: inline-block;';
     this.updateUserSettings(this.state);
@@ -70,7 +69,6 @@ module.exports = class UserAccountForm extends React.Component {
 
 
   render() {
-
     return (
       <div className="userForm">
         <form onSubmit={this.handleSubmit}>
@@ -84,11 +82,9 @@ module.exports = class UserAccountForm extends React.Component {
           <input type="text" name="lastName" defaultValue={this.state.lastName}  onChange={this.handleChange}/><br />
           Job Title<br />
           <input type="text" name="jobTitle" defaultValue={this.state.jobTitle}  onChange={this.handleChange}/><br />
-
           <button id="submitButton" className="submitButton"><div className="loaded" id="loaded">Save</div><div className="loading" id="loading"></div></button>
         </form>
-
       </div>
-  );
-}
+    );
+  }
 }
